@@ -1,0 +1,11 @@
+### Update Patient record
+PUT http://localhost:4000/patients/123e4567-e89b-12d3-a456-426614174000
+Content-Type: application/json
+
+{
+  "name": "Jonny Lever updated again",
+  "email" : "test_email@gmail.com",
+  "address": "125 Main St, Springfield, USA",
+  "dateOfBirth": "1990-01-02"
+}
+###
