@@ -1,0 +1,12 @@
+### Creating a new patient record
+POST http://localhost:4000/patients
+Content-Type: application/json
+
+{
+  "name": "John Doe",
+  "email" : "abc@example.com" ,
+  "address": "123 Main St, Springfield, USA",
+  "dateOfBirth": "1990-01-01",
+  "registeredDate": "2023-10-01"
+}
+###
