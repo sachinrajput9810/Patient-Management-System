@@ -15,13 +15,12 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<Map<String , String>> handleValidationException(MethodArgumentNotValidException ex){
-        Map<String, String> errors = new HashMap<>() ;
-        ex.getBindingResult().getFieldErrors().forEach(error ->{
-            errors.put(error.getField() , error.getDefaultMessage()) ;
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getFieldErrors().forEach(error -> {
+            errors.put(error.getField(), error.getDefaultMessage());
         });
         return ResponseEntity.badRequest().body(errors);
     }
-
 
     @ExceptionHandler(EmailAlreadyExistException.class)
     public ResponseEntity<Map<String, String>> handleEmailAlreadyExistException(EmailAlreadyExistException ex) {
@@ -33,10 +32,9 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(PatientNotFoundException.class)
     public ResponseEntity<Map<String , String>> handlePatientNotFoundException(PatientNotFoundException ex){
-        log.warn("Patient not found :: {}" , ex.getMessage());
-        Map<String , String> error = new  HashMap<>() ;
-        error.put("message" , "Patient not found with the given id") ;
+        log.warn("Patient not found :: {}", ex.getMessage());
+        Map<String , String> error = new HashMap<>();
+        error.put("message", "Patient not found with the given id");
         return ResponseEntity.status(404).body(error);
     }
-
 }

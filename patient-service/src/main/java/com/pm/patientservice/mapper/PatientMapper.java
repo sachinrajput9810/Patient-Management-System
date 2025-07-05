@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 public class PatientMapper {
 
-    public static PatientResponseDTO toDTO(Patient patient){
+    public static PatientResponseDTO toDTO(Patient patient) {
         PatientResponseDTO patientResponseDTO = new PatientResponseDTO();
         patientResponseDTO.setId(patient.getId().toString());
         patientResponseDTO.setName(patient.getName());
@@ -18,8 +18,8 @@ public class PatientMapper {
         return patientResponseDTO;
     }
 
-    public static Patient toModel(PatientRequestDTO patientRequestDTO){
-        Patient patient = new Patient() ;
+    public static Patient toModel(PatientRequestDTO patientRequestDTO) {
+        Patient patient = new Patient();
         patient.setName(patientRequestDTO.getName());
         patient.setEmail(patientRequestDTO.getEmail());
         patient.setAddress(patientRequestDTO.getAddress());
@@ -27,5 +27,4 @@ public class PatientMapper {
         patient.setRegisteredDate(LocalDate.parse(patientRequestDTO.getRegisteredDate()));
         return patient;
     }
-
 }
