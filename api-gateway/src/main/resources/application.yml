@@ -22,6 +22,13 @@ spring:
             - id: api-docs-patient-route                          # Eg Flow
               uri: http://patient-service:4000                    # Rest Client -> http://localhost:4004/api/patients
               predicates:                                         # Gateway -> http://patient-service:4000/v3/api-docs
-                - Path=/api-docs/patients/**
+                - Path=/api-docs/patients
               filters:
                 - RewritePath=/api-docs/patients, /v3/api-docs
+
+            - id: api-docs-auth-route                             # Eg Flow
+              uri: http://auth-service:4005                       # Rest Client -> http://localhost:4004/api-docs/auth
+              predicates:                                         # Gateway -> http://auth-service:4005/v3/api-docs
+                - Path=/api-docs/auth
+              filters:
+                - RewritePath=/api-docs/auth, /v3/api-docs
