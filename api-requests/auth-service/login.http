@@ -1,9 +1,13 @@
 ### Login Request to Retrive Access Token
-POST http://localhost:4005/login
+POST http://localhost:4004/auth/login
 Content-Type: application/json
 
 {
   "email": "testuser@test.com",
   "password": "password123"
 }
+
+
+> {% client.global.set("token" , response.body.token)  %}
+
 ###
