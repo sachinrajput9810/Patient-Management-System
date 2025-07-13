@@ -24,6 +24,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="infrastructure" target="23" />
       <module name="untitled" target="23" />
     </bytecodeTargetLevel>
   </component>
